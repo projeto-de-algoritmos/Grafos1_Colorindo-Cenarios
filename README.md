@@ -16,9 +16,36 @@ Descreva os objetivos do seu projeto e como ele funciona.
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: python3
+**Framework**: [python3-flask](https://flask.palletsprojects.com/en/1.1.x/)
+**SO utilizado no desenvolvimento**: Debian GNU/Linux
+
+&emsp;&emsp; Nossa instalação automatizada foi criada pensando no sistema operacional Debian e suas variantes. Caso necessite instalar em outro sistema operacional, confira o arquivo requirements que descreve os softwares necessários.
+
+Primeiro, clone o repositório e entre na pasta:
+
+```
+$ git clone https://github.com/projeto-de-algoritmos/Grafos1_Colorindo-Cenarios.git
+$ cd Grafos1_Colorindo-Cenarios
+```
+
+Instale os requisitos:
+
+```
+$ ./install.sh
+```
+
+Caso não tenha permissão de execução, execute:
+
+```
+$ chmod +x install.sh
+```
+
+Por fim, execute o app:
+
+```
+$ flask run
+```
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
