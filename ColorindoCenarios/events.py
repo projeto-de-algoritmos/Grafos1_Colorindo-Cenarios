@@ -1,8 +1,8 @@
-from pygame import QUIT, MOUSEBUTTONDOWN, mouse
-from colors import WALLS
+from pygame import QUIT, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 from Board import Board
+from Mouse import Mouse
 
-def treats_event(event, board: Board) -> bool:
+def treats_event(event, board: Board, mouse: Mouse) -> bool:
     """treats pygame events
 
             Parameters:
@@ -15,13 +15,8 @@ def treats_event(event, board: Board) -> bool:
     """
     if event.type == QUIT:
         return True
+    elif event.type == MOUSEBUTTONUP:
+        mouse.set_state(False)
     elif event.type == MOUSEBUTTONDOWN:
-        pos = mouse.get_pos()
-        # Change the x/y screen coordinates to grid coordinates
-        column = pos[0] // (board.width + board.margin)
-        row = pos[1] // (board.height + board.margin)
-        # Mark position with new color
-        if not board.out_of_range(row, column):
-            board.grid[row][column] = WALLS
+        mouse.set_state(True)
     return False
-
