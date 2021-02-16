@@ -3,6 +3,15 @@ from colors import WALLS
 from Board import Board
 
 def treats_event(event, board: Board) -> bool:
+    """treats pygame events
+
+            Parameters:
+                    event (Event): pygame event
+                    board (Board): scenery that contains the main grid
+
+            Returns:
+                    bool
+    """
     if event.type == QUIT:
         return False
     elif event.type == MOUSEBUTTONDOWN:
