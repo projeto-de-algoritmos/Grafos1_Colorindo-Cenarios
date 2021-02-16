@@ -24,3 +24,4 @@ def treats_event(event, board: Board) -> bool:
         if not board.out_of_range(row, column):
             board.grid[row][column] = WALLS
     return False
+

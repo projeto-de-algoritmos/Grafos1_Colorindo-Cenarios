@@ -12,3 +12,4 @@ pygame.display.set_caption("Colorindo Cenarios")
 
 # Create an object to help track time
 clock = pygame.time.Clock()
+

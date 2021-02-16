@@ -23,7 +23,7 @@ class Board():
         """
         return (x < 0 or y < 0 or x >= self.width or y >= self.height)
     
-    def draw(self, screen: Surface) -> None:
+    def draw_grid(self, screen: Surface) -> None:
         """draw grid to specific screen
 
                 Parameters:
@@ -41,7 +41,7 @@ class Board():
                           self.width,
                           self.height])
     
-    def flood_fill(self, x: int, y: int, color: str, new_color: str) -> None:
+    def flood_fill(self, x: int, y: int, color: tuple, new_color: tuple) -> None:
         """determines and alters the area connected to a given node in
         a multi-dimensional array based on a color matching attribute.
 
@@ -54,10 +54,11 @@ class Board():
                 Returns:
                         None
         """
-        if self.out_of_range(x, y) or self.grid[x][y] != color:
+        if self.out_of_range(x, y) or self.grid[x][y] != color or color == new_color:
             return
    
         self.grid[x][y] = new_color
     
         for i in range(0, 4):
             self.flood_fill(x+self.dx[i], y+self.dy[i], color, new_color)
+

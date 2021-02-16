@@ -13,7 +13,7 @@ done = False
 
 while not done:
     # Draw the grid
-    board.draw(screen)
+    board.draw_grid(screen)
     # Frame rate
     clock.tick(60)
     # Update screen
@@ -21,3 +21,4 @@ while not done:
     # Treats player interaction
     for event in pygame.event.get():
         done = treats_event(event, board)
+
