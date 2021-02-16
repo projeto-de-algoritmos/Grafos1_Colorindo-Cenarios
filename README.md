@@ -17,7 +17,7 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
 **Linguagem**: python3
-**Framework**: [python3-flask](https://flask.palletsprojects.com/en/1.1.x/)
+**Framework**: python3-pygame
 **SO utilizado no desenvolvimento**: Debian GNU/Linux
 
 &emsp;&emsp; Nossa instalação automatizada foi criada pensando no sistema operacional Debian e suas variantes. Caso necessite instalar em outro sistema operacional, confira o arquivo requirements que descreve os softwares necessários.
@@ -32,19 +32,19 @@ $ cd Grafos1_Colorindo-Cenarios
 Instale os requisitos:
 
 ```
-$ ./install.sh
+$ ./scripts/install.sh
 ```
 
 Caso não tenha permissão de execução, execute:
 
 ```
-$ chmod +x install.sh
+$ chmod +x ./scripts/install.sh
 ```
 
 Por fim, execute o app:
 
 ```
-$ flask run
+$ python3 ColorindoCenarios/main.py
 ```
 
 ## Uso 

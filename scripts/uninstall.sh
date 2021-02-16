@@ -1,3 +1,3 @@
 #!/bin/bash
-cat ../requirements.txt | xargs sudo apt remove -y
+cat requirements.txt | xargs sudo apt remove -y
 sudo apt autoremove
