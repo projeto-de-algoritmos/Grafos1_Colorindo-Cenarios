@@ -54,10 +54,10 @@ class Board():
                 Returns:
                         None
         """
-        if out_of_range(x, y) or self.grid[x][y] != color:
+        if self.out_of_range(x, y) or self.grid[x][y] != color:
             return
    
         self.grid[x][y] = new_color
     
         for i in range(0, 4):
-            flood_fill(x+self.dx[i], y+self.dy[i], color, new_color)
+            self.flood_fill(x+self.dx[i], y+self.dy[i], color, new_color)
