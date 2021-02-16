@@ -12,7 +12,7 @@ class Board():
         self.grid = [[standard_color for i in range(height)] for j in range(width)]
 
     def out_of_range(self, x: int, y: int) -> bool:
-        """tells if x or y access board.grid invalid position
+        """tells if x or y access self.grid invalid position
 
                 Parameters:
                         x (int): x position in grid
@@ -22,6 +22,22 @@ class Board():
                         bool
         """
         return (x < 0 or y < 0 or x >= self.width or y >= self.height)
+
+    def change_grid_color(self, x: int, y: int, new_color: tuple) -> None:
+        """change color after mouse click
+
+                Parameters:
+                        x (int): x screen coordinates
+                        y (int): y screen coordinates
+
+                Returns:
+                        None
+        """
+        # Change the x/y screen coordinates to grid coordinates
+        column = x // (self.width + self.margin)
+        row = y // (self.height + self.margin)
+        if not self.out_of_range(row, column):
+            self.grid[row][column] = new_color
     
     def draw_grid(self, screen: Surface) -> None:
         """draw grid to specific screen
@@ -61,4 +77,3 @@ class Board():
     
         for i in range(0, 4):
             self.flood_fill(x+self.dx[i], y+self.dy[i], color, new_color)
-
