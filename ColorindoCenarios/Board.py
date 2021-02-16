@@ -9,7 +9,7 @@ class Board():
         # directions to walk
         self.dx = [ -1, 1, 0,  0]
         self.dy = [  0, 0, 1, -1]
-        self.grid = [[standard_color for i in range(height)]] * width
+        self.grid = [[standard_color for i in range(height)] for j in range(width)]
 
     def out_of_range(self, x: int, y: int) -> bool:
         """tells if x or y access board.grid invalid position
