@@ -12,12 +12,12 @@ board = Board(30, 30, 5, STANDARD_COLOR)
 game_loop = True
 
 while game_loop:
-    # Treats player interaction
-    for event in pygame.event.get():
-        game_loop = treats_event(event, board)
     # Draw the grid
     board.draw(screen)
     # Frame rate
     clock.tick(60)
     # Update screen
     pygame.display.flip()
+    # Treats player interaction
+    for event in pygame.event.get():
+        game_loop = treats_event(event, board)
