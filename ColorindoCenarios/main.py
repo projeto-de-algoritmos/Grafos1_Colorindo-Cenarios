@@ -9,9 +9,9 @@ from events import treats_event
 from Board import Board
 
 board = Board(30, 30, 5, STANDARD_COLOR)
-game_loop = True
+done = False
 
-while game_loop:
+while not done:
     # Draw the grid
     board.draw(screen)
     # Frame rate
@@ -20,4 +20,4 @@ while game_loop:
     pygame.display.flip()
     # Treats player interaction
     for event in pygame.event.get():
-        game_loop = treats_event(event, board)
+        done = treats_event(event, board)

@@ -10,10 +10,11 @@ def treats_event(event, board: Board) -> bool:
                     board (Board): scenery that contains the main grid
 
             Returns:
-                    bool
+                    True (bool): quit game
+                    False (bool): stay playing
     """
     if event.type == QUIT:
-        return False
+        return True
     elif event.type == MOUSEBUTTONDOWN:
         pos = mouse.get_pos()
         # Change the x/y screen coordinates to grid coordinates
@@ -22,4 +23,4 @@ def treats_event(event, board: Board) -> bool:
         # Mark position with new color
         if not board.out_of_range(row, column):
             board.grid[row][column] = WALLS
-    return True
+    return False
