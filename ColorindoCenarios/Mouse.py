@@ -6,9 +6,8 @@ class Mouse:
         """state could be mouse pressed up or down
 
                 Parameters:
-                        state (bool): True  -> mouse button down
-                                      False -> mouse button up
-
+                        state (bool=True): mouse button down
+                        state (bool=False): mouse button up
                 Returns:
                         None
         """
@@ -18,7 +17,7 @@ class Mouse:
         """check if state is True
 
                 Returns:
-                        state (bool): True  -> mouse button down
-                                      False -> mouse button up
+                        True (bool): mouse button down
+                        False (bool): mouse button up
         """
         return self.state
