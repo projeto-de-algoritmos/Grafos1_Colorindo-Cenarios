@@ -3,7 +3,9 @@ import pygame
 # Global constants and variables
 from config import screen, clock
 from colors import STANDARD_COLOR, WALL, RED, GREEN
+from confirmation import draw_button,red_button,green_button
 # Functions
+from confirmation import confirmation_button, confirmation_fill, confirmation_draw_button
 from events import treats_event
 # Classes
 from Board import Board
@@ -15,18 +17,12 @@ new_color = WALL
 board = Board(30, 30, 5, STANDARD_COLOR)
 mouse = Mouse()
 done = False
-# Buttons
-draw_button = Button(STANDARD_COLOR,1095,5,460,205,"DRAW")
-red_button = Button(RED,1095,215,225,205,"RED")
-green_button = Button(GREEN,1330,215,225,205,"GREEN")
 
 while not done:
     # Draw the grid
     board.draw_grid(screen)
     # Draw the buttons
-    draw_button.draw(screen,WALL)
-    red_button.draw(screen,WALL)
-    green_button.draw(screen,WALL)
+    confirmation_draw_button(screen, draw_button, green_button, red_button)
     # Frame rate
     clock.tick(60)
     # Update screen
@@ -38,19 +34,8 @@ while not done:
     if mouse.state:
         x, y = pygame.mouse.get_pos()
         # Buttons
-        if draw_button.check(x,y):
-            new_color = WALL
-        elif green_button.check(x,y):
-            new_color = GREEN
-        elif red_button.check(x,y):
-            new_color = RED   
+        new_color = confirmation_button(x, y, new_color, draw_button, green_button, red_button)
         # Grid change
         x, y = board.screen_to_grid(x,y)
-
         #Draw/Flood
-        #board.change_grid_color(x, y, new_color)
-        if not board.out_of_range(x,y):
-            if new_color == WALL:
-                board.grid[x][y] = WALL
-            else:
-                board.flood_fill(x, y, board.grid[x][y],new_color)
+        confirmation_fill(x, y, board, new_color)
