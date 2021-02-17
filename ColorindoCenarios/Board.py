@@ -19,9 +19,22 @@ class Board():
                         y (int): y position in grid
 
                 Returns:
-                        bool
+                        True (bool):  is out of range
+                        False (bool): is in range
         """
         return (x < 0 or y < 0 or x >= self.width or y >= self.height)
+
+    def screen_to_grid(self, x: int, y: int) -> tuple:
+        """Change the x/y screen coordinates to grid coordinates
+
+                Parameters:
+                        x (int): x screen coordinates
+                        y (int): y screen coordinates
+
+                Returns:
+                        (x, y) (tuple): grid coordinates
+        """
+        return (y // (self.width + self.margin), x // (self.height + self.margin))
 
     def change_grid_color(self, x: int, y: int, new_color: tuple) -> None:
         """change color after mouse click
@@ -33,11 +46,8 @@ class Board():
                 Returns:
                         None
         """
-        # Change the x/y screen coordinates to grid coordinates
-        column = x // (self.width + self.margin)
-        row = y // (self.height + self.margin)
-        if not self.out_of_range(row, column):
-            self.grid[row][column] = new_color
+        if not self.out_of_range(x, y):
+            self.grid[x][y] = new_color
     
     def draw_grid(self, screen: Surface) -> None:
         """draw grid to specific screen
