@@ -8,6 +8,7 @@ def treats_event(event, board: Board, mouse: Mouse) -> bool:
             Parameters:
                     event (Event): pygame event
                     board (Board): scenery that contains the main grid
+                    mouse (Mouse): class that control mouse states
 
             Returns:
                     True (bool): quit game
