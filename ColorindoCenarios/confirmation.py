@@ -8,7 +8,9 @@ draw_button = Button(STANDARD_COLOR,1095,5,460,205,"DRAW")
 red_button = Button(RED,1095,215,225,205,"RED")
 green_button = Button(GREEN,1330,215,225,205,"GREEN")
 
-def confirmation_button(x: int, y: int, color: tuple, draw_button: Button, green_button: Button, red_button: Button) -> tuple:
+all_buttons = [draw_button, green_button, red_button]
+
+def confirmation_button(x: int, y: int, color: tuple)-> tuple:
     """check if the mouse click the button
 
             Parameters:
@@ -21,15 +23,14 @@ def confirmation_button(x: int, y: int, color: tuple, draw_button: Button, green
 
             Returns:
                     Color of the current button or the current color
-"""    
-    if draw_button.check(x,y):
-        return WALL
-    elif green_button.check(x,y):
-        return GREEN
-    elif red_button.check(x,y):
-        return RED
-    else: 
-        return color
+    """
+    for i in range(len(all_buttons)):
+        if all_buttons[i].check(x,y):
+            if(all_buttons[i].color == STANDARD_COLOR):
+                return WALL
+            else:
+                return all_buttons[i].color
+    return color
 
 def confirmation_fill(x: int, y: int, board: Board, new_color: tuple) -> None:
     """check the current draw methot
@@ -42,15 +43,14 @@ def confirmation_fill(x: int, y: int, board: Board, new_color: tuple) -> None:
 
             Returns:
                     None
-"""  
-
+    """
     if not board.out_of_range(x,y):
             if new_color == WALL:
                 board.grid[x][y] = WALL
             else:
                 board.flood_fill(x, y, board.grid[x][y],new_color)
 
-def confirmation_draw_button(screen: Surface, draw_button: Button, green_button: Button, red_button: Button) -> None:
+def confirmation_draw_button(screen: Surface) -> None:
     """draw the buttons on the screen
 
             Parameters:
@@ -62,7 +62,6 @@ def confirmation_draw_button(screen: Surface, draw_button: Button, green_button:
 
             Returns:
                     Color of the current button
-"""      
-    draw_button.draw(screen,WALL)
-    red_button.draw(screen,WALL)
-    green_button.draw(screen,WALL)
+    """
+    for i in range(len(all_buttons)):
+        all_buttons[i].draw(screen,WALL)
