@@ -1,26 +1,16 @@
 # Libraries
 import pygame
 # Global constants and variables
-from config import screen, clock
-from colors import STANDARD_COLOR, WALL, RED, GREEN
+from config import screen, clock, buttons, board, mouse, new_color
 # Functions
-from confirmation import confirmation_button, confirmation_fill, confirmation_draw_button
+from buttonsHelper import buttons_on_click, draw_or_fill, draw_buttons
 from events import treats_event
-# Classes
-from Board import Board
-from Mouse import Mouse
 
-new_color = WALL
-
-board = Board(30, 30, 5, STANDARD_COLOR)
-mouse = Mouse()
 done = False
 
 while not done:
-    # Draw the grid
     board.draw_grid(screen)
-    # Draw the buttons
-    confirmation_draw_button(screen)
+    draw_buttons(screen, buttons)
     # Frame rate
     clock.tick(60)
     # Update screen
@@ -31,9 +21,7 @@ while not done:
     # If mouse is pressed then change color
     if mouse.state:
         x, y = pygame.mouse.get_pos()
-        # Buttons
-        new_color = confirmation_button(x, y, new_color)
-        # Grid change
-        x, y = board.screen_to_grid(x,y)
-        #Draw/Flood
-        confirmation_fill(x, y, board, new_color)
+        new_color = buttons_on_click(x, y, new_color, buttons)
+        x, y = board.screen_to_grid(x, y)
+        draw_or_fill(x, y, board, new_color)
+
