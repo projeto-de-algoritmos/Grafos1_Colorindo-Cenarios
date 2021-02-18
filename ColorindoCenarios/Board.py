@@ -36,19 +36,6 @@ class Board():
         """
         return (y // (self.width + self.margin), x // (self.height + self.margin))
 
-    def change_grid_color(self, x: int, y: int, new_color: tuple) -> None:
-        """change color after mouse click
-
-                Parameters:
-                        x (int): x screen coordinates
-                        y (int): y screen coordinates
-
-                Returns:
-                        None
-        """
-        if not self.out_of_range(x, y):
-            self.grid[x][y] = new_color
-    
     def draw_grid(self, screen: Surface) -> None:
         """draw grid to specific screen
 
