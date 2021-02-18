@@ -24,4 +24,3 @@ while not done:
         new_color = buttons_on_click(x, y, new_color, buttons)
         x, y = board.screen_to_grid(x, y)
         draw_or_fill(x, y, board, new_color)
-

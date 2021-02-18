@@ -52,4 +52,3 @@ def draw_buttons(screen: Surface, buttons: list) -> None:
     """
     for i in range(len(buttons)):
         buttons[i].draw(screen, WALL)
-
