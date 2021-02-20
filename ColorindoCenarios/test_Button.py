@@ -10,6 +10,9 @@ class TestButton(unittest.TestCase):
         self.button3 = Button(GREEN, 1330, 215, 225, 205, "GREEN")
 
     def test_check(self):
+        """Testing if check function returns True (click on the button)
+           or False (didn't click on the button).
+        """
         self.assertTrue(Button.check(self.button1, 1115,150))
         self.assertFalse(Button.check(self.button2, 1115,150))
         self.assertFalse(Button.check(self.button3, 1115,150))

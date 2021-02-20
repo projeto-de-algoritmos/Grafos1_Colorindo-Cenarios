@@ -11,6 +11,9 @@ class TestBoard(unittest.TestCase):
         self.board_4 = Board(100, 100, 5, STANDARD_COLOR)
 
     def test_out_of_range(self):
+        """Checking if out_of_range returns True (is out of range)
+           or False (is in range).
+        """
         self.assertFalse(Board.out_of_range(self.board_1,10,10))
         self.assertFalse(Board.out_of_range(self.board_4,99,99))
         self.assertTrue(Board.out_of_range(self.board_4,1000,50))
