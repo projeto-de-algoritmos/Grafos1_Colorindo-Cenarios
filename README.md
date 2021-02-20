@@ -28,7 +28,9 @@ As imagens estão disponíveis em [releases](https://github.com/projeto-de-algor
 ## Instalação
 
 **Linguagem**: python3
+
 **Framework**: python3-pygame
+
 **SO utilizado no desenvolvimento**: Debian GNU/Linux
 
 &emsp;&emsp; Nossa instalação automatizada foi criada pensando no sistema operacional Debian e suas variantes. Caso necessite instalar em outro sistema operacional, confira o arquivo requirements que descreve os softwares necessários.
@@ -74,6 +76,10 @@ O programa consiste em três tipos de opções:
 - CLEAR
 - FLOODFILL (Representada pelos botões de cores)
 
-&emsp;&emsp;A função DRAW seleciona a ferramenta para que o usuário desenhe na tela com a cor preta.
-&emsp;&emsp;A função CLEAR faz com que a tela volte ao estado inicial(toda branca).
-&emsp;&emsp;Os botões de cores funcionam para ativar a função flood fill.
+&emsp;&emsp; A função DRAW seleciona a ferramenta para que o usuário desenhe na tela com a cor preta.
+
+&emsp;&emsp; A função CLEAR faz com que a tela volte ao estado inicial(toda branca).
+
+&emsp;&emsp; Os botões de cores funcionam para ativar a função flood fill.
+
+Explicação por [vídeo](https://www.youtube.com/watch?v=tPAWue90IzE).
