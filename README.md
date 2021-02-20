@@ -4,18 +4,29 @@
 **Conteúdo da Disciplina**: Grafos1<br>
 
 ## Alunos
+
 |Matrícula | Aluno |
 | -- | -- |
 | 18/0037439  |  Sérgio de Almeida Cipriano Júnior |
 | 18/0030264  |  Antonio Igor Carvalho |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+
+&emsp;&emsp; Nosso trabalho almeja aplicar a famosa função de "colorir com balde" oferecida por editores de imagens, tais como o GIMP.
+Utilizamos o algoritmo flood fill para realizar essa tarefa. Nossa ideia era mostrar visualmente o algoritmo funcionando.
+
+&emsp;&emsp; Além disso, o trabalho foi feito pensando em facilitar expansão. Adicionar novos botões e novas funcionalidades é bem simples.
+Inclusive, para brincar com novos algoritmos bastaria criar instâncias diferentes gerenciadas por um único menu.
+
+&emsp;&emsp; Nosso foco foi em manter um escopo pequeno, prezando por qualidade. Assim, podemos expandir esse mesmo app durante toda a
+disciplina, se necessário/desejado.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
 
-## Instalação 
+As imagens estão disponíveis em [releases](https://github.com/projeto-de-algoritmos/Grafos1_Colorindo-Cenarios/releases).
+
+## Instalação
+
 **Linguagem**: python3
 **Framework**: python3-pygame
 **SO utilizado no desenvolvimento**: Debian GNU/Linux
@@ -47,12 +58,22 @@ Por fim, execute o app:
 $ python3 ColorindoCenarios/main.py
 ```
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+## Testes
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+&emsp;&emsp; Para rodar os testes basta fazer:
 
+```
+$ cd ColorindoCenarios/
+$ python3 nome_do_teste
+```
 
+## Uso
 
+O programa consiste em três tipos de opções:
+- DRAW
+- CLEAR
+- FLOODFILL (Representada pelos botões de cores)
 
+&emsp;&emsp;A função DRAW seleciona a ferramenta para que o usuário desenhe na tela com a cor preta.
+&emsp;&emsp;A função CLEAR faz com que a tela volte ao estado inicial(toda branca).
+&emsp;&emsp;Os botões de cores funcionam para ativar a função flood fill.
