@@ -1,6 +1,6 @@
 from pygame import Surface
 from Board import Board
-from colors import STANDARD_COLOR, RED, GREEN, WALL
+from colors import STANDARD_COLOR, RED, GREEN, WALL, YELLOW, BLUE,PURPLE,PINK, GREY
 
 def buttons_on_click(x: int, y: int, color: tuple, buttons: list) -> tuple:
     """check if the mouse click the button
@@ -37,8 +37,12 @@ def draw_or_fill(x: int, y: int, board: Board, new_color: tuple) -> None:
     if not board.out_of_range(x, y):
         if new_color == WALL:
             board.grid[x][y] = new_color
-        else:
+        elif new_color != GREY:
             board.flood_fill(x, y, board.grid[x][y], new_color)
+    if new_color == GREY:
+        for row in range(board.width):
+            for column in range(board.height):
+                board.grid[row][column] = STANDARD_COLOR
 
 def draw_buttons(screen: Surface, buttons: list) -> None:
     """draw the buttons on the screen
